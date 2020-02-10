@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     String password =passwordEditable.toString();
                     if(usernameView.equals(goodusername) && (password.equals(goodpassword)))
                     {
-                        Intent intent= new Intent(MainActivity.this, second.class);
+                        Intent intent= new Intent(MainActivity.this, SecondActivity.class);
                         intent.putExtra("username",usernameView);
                         startActivity(intent);
                     }

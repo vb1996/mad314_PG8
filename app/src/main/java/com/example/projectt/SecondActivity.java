@@ -26,10 +26,10 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        firstname= findViewById(R.id.editText);
-        lastname = findViewById(R.id.editText2);
-        emailid = findViewById(R.id.editText3);
-        password = findViewById(R.id.editText4);
+        firstname= findViewById(R.id.editText3);
+        lastname = findViewById(R.id.editText4);
+        emailid = findViewById(R.id.editText5);
+        password = findViewById(R.id.editText6);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +40,7 @@ public class SecondActivity extends AppCompatActivity {
                 System.out.println();
                 if (username.equals(goodfirstname) && password.equals(goodpassword)) {
                     Toast.makeText(getApplicationContext(), username + "  login success!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                    Intent intent = new Intent(SecondActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Invalid Username or Password", Toast.LENGTH_SHORT).show();
