@@ -10,45 +10,33 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity {
 
+    Button button1,button2;
+    TextView textView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        Button submitbutton;
-        EditText usernameditext;
-        EditText passwordittext;
+        button1=findViewById(R.id.userButton);
+        button2=findViewById(R.id.employeeButton);
 
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, User.class);
+                startActivity(intent);
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, Employee.class);
+                startActivity(i);
 
-        String goodusername="Arsh";
-        String goodpassword="12345";
-
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-
-
-            usernameditext=findViewById(R.id.username);
-            passwordittext=findViewById(R.id.password);
-
-
-            submitbutton=findViewById(R.id.login);
-            submitbutton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Editable usernameEditable= usernameditext.getText();
-                    String usernameView=usernameEditable.toString();
-
-                    Editable passwordEditable= usernameditext.getText();
-                    String password =passwordEditable.toString();
-                    if(usernameView.equals(goodusername) && (password.equals(goodpassword)))
-                    {
-                        Intent intent= new Intent(MainActivity.this, SecondActivity.class);
-                        intent.putExtra("username",usernameView);
-                        startActivity(intent);
-                    }
-                }
-            });
-
-        }
+            }
+        });
     }
+}
